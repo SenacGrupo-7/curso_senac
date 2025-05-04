@@ -1,0 +1,11 @@
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: blue;
+    background-color: aqua;
+}
+
+h2 {
+    color: red;
+    background-color: burlywood;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulo</title>
+</head>
+<body>
+    <!-- Criação de um elemento canvas onde o círculo será desenhado -->
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script type="text/javascript">
+        // Obtém a referência do elemento canvas pelo ID
+        var c = document.getElementById("canvas");
+
+        // Obtém o contexto 2D do canvas para desenhar
+        var ctx = c.getContext("2d");
+
+        // Inicia um novo caminho para desenho
+        ctx.beginPath();
+
+        // Desenha um círculo com centro em (95, 50), raio de 40 pixels, 
+        // começando do ângulo 0 até 2*PI (círculo completo)
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+
+        // Desenha a borda do círculo
+        ctx.stroke();
+
+        // Define a cor de preenchimento como vermelha
+        ctx.fillStyle = "red";
+
+        // Preenche o círculo com a cor definida
+        ctx.fill();
+    </script>    
+</body>
+</html>

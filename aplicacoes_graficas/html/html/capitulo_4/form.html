@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h2>Digite sem usar vogais</h2>
+    <input type="text" />
+       
+</body>
+
+    <script type="text/javascript">
+        var input = document.querySelector('input');
+        var ignorar = ['a', 'e', 'i', 'o', 'u'];
+        input.addEventListener('keydown', function(e){
+            var char = e.keyCode || e.which;
+            var letra = String.fromCharCode(char).toLocaleLowerCase();
+            if(ignorar.indexOf(letra)!= -1)e.preventDefault();
+        });
+    </script>
+</html>

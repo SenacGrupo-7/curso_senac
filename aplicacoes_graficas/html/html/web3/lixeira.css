@@ -1,0 +1,52 @@
+/* Estilização do corpo da página */
+
+
+
+body {
+    background-color: black; /* Define o fundo da página como preto */
+    display: flex; /* Usa Flexbox para centralizar o conteúdo */
+    align-items: center; /* Centraliza os elementos verticalmente */
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    height: 100vh; /* Define a altura do body como 100% da altura da tela */
+}
+
+/* Ajustes no SVG */
+svg {
+    overflow: visible; /* Garante que elementos dentro do SVG possam ultrapassar seus limites */
+}
+
+/* Definição da origem da transformação para a tampa */
+#tampa {
+    transform-origin: right; /* Define o ponto de rotação da tampa à direita */
+}
+
+/* Animação aplicada ao corpo da lixeira */
+#lata.animated {
+    animation: jogar 0.3s linear; /* Aplica a animação 'jogar' com duração de 0.3s */
+}
+
+/* Animação aplicada à tampa da lixeira */
+#tampa.animated {
+    animation: abrir 1s forwards; /* Aplica a animação 'abrir' com duração de 1s */
+}
+
+/* Definição da animação de abrir a tampa */
+@keyframes abrir {
+    from {
+        /* Estado inicial (sem transformação) */
+    }
+    to {
+        transform: rotate(45deg); /* Rotaciona a tampa 45 graus */
+    }
+}
+
+/* Definição da animação de jogar o lixo */
+@keyframes jogar {
+    to {
+        transform: translateY(10%); /* Move o corpo da lixeira 10% para baixo */
+    }
+}
+
+.titulo {
+    color: white;
+}

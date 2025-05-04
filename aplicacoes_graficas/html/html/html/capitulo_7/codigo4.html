@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Example</title>
+</head>
+<body>
+    <!-- Elemento <canvas> onde será desenhado o conteúdo -->
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script type="text/javascript">
+        // Obtém o elemento <canvas> pelo ID
+        var c = document.getElementById("canvas"); 
+        
+        // Obtém o contexto 2D do canvas, necessário para desenhar
+        var ctx = c.getContext("2d");
+
+        // Define a cor de preenchimento como verde
+        ctx.fillStyle = 'green';
+        
+        // Desenha um retângulo preenchido nas coordenadas (30,30) com largura e altura de 50px
+        ctx.fillRect(30, 30, 50, 50);
+    </script>
+</body>
+</html>

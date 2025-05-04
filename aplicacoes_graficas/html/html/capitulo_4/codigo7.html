@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos Personalizados</title>
+    <script>
+        function mostrarInfo() {
+            var elemento = document.getElementById("produto");
+            var nome = elemento.getAttribute("data-nome");
+            var preco = elemento.getAttribute("data-preco");
+            
+            alert("Produto: " + nome + "\nPreço: R$ " + preco);
+        }
+    </script>
+</head>
+<body>
+    <div id="produto" data-nome="Notebook Dell" data-preco="4500" onclick="mostrarInfo()">
+        Clique aqui para ver os detalhes do produto
+    </div>
+</body>
+</html>

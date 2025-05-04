@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Define o idioma da página como inglês -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a página para ser responsiva -->
+    <title>Animação Lixeria</title> <!-- Define o título da página, que aparece na aba do navegador -->
+
+    <!-- Importa o arquivo CSS externo para estilização da lixeira -->
+    <link rel="stylesheet" href="lixeira.css"> 
+
+    <!-- Importa o arquivo JavaScript externo, usando 'defer' para garantir que o script seja carregado após o HTML -->
+    <script src="lixeira.js" defer></script>
+</head>
+<body>
+
+    <h6 class="titulo">Clique na lixeira para abrir/fechar</h6>
+
+    <!-- Desenha a lixeira usando SVG -->
+    <svg width="56" height="70" viewBox="0 0 56 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- Define a tampa da lixeira (cor vermelha) -->
+        <path id="tampa" d="M56 4H42L38 0H18L14 4H0V12H56V4Z" fill="red"/>
+        
+        <!-- Define o corpo da lixeira (cor vermelha) -->
+        <path id="lata" d="M4 62C4 66.4 7.6 70 12 70H44C48.4 70 52 66.4 52 62V14H4V62Z" fill="red"/>
+    
+    </svg>
+
+</body>
+</html>

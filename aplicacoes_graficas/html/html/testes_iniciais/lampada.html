@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada Interativa</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .lamp-container {
+            margin-top: 50px;
+        }
+
+        .lamp {
+            width: 100px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Clique na lâmpada para acender ou apagar</h1>
+
+    <div class="lamp-container">
+        <img id="lamp" src="https://www.w3schools.com/js/pic_bulboff.gif" class="lamp" alt="Lâmpada apagada">
+    </div>
+
+    <script>
+        const lamp = document.getElementById("lamp");
+        let isOn = false;
+
+        lamp.addEventListener("click", () => {
+            isOn = !isOn;
+            lamp.src = isOn 
+                ? "https://www.w3schools.com/js/pic_bulbon.gif" 
+                : "https://www.w3schools.com/js/pic_bulboff.gif";
+        });
+    </script>
+
+</body>
+</html>

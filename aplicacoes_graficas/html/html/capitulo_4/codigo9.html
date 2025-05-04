@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depuração de Atributos</title>
+    <script>
+        function mostrarAtributos(event) {
+            var elemento = event.target;
+            var atributos = "Atributos do elemento clicado:<br>";
+
+            for (var i = 0; i < elemento.attributes.length; i++) {
+                atributos += elemento.attributes[i].nodeName + " = " + elemento.attributes[i].value + "<br>";
+            }
+
+            document.getElementById("resultado").innerHTML = atributos;
+        }
+    </script>
+</head>
+<body>
+    <h1>Clique em um elemento para ver seus atributos</h1>
+    <div id="teste" class="box" style="border: 2px solid blue;" data-role="exemplo" onclick="mostrarAtributos(event)">
+        Clique aqui
+    </div>
+
+    <p id="resultado" style="margin-top: 20px;"></p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificando atributos usados na div por JavaScript</title>
+    <script type="text/javascript">
+        function listarAtributos(){
+            var elem = document.getElementById("conta");
+            var atributos = "";
+
+            for(var i=0; i < elem.attributes.length; i++){
+                atributos += elem.attributes[i].nodeName + "<br>";
+            }
+
+            elem.innerHTML = atributos;
+        }
+    </script>
+</head>
+<body>
+    <div id="conta" style="border: 1px solid red;"> Elemento DIV</div>
+    <button onclick="JavaScript:listarAtributos()">Listar tributos usados na DIV</button>
+    <hr/>    
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* Reset de estilos para garantir consistência entre os navegadores */
+* {
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    box-sizing: border-box; /* Faz com que padding e border sejam incluídos no tamanho total do elemento */
+}
+
+/* Estilização geral do corpo da página */
+body {
+    background-color: #0F172A; /* Define um fundo escuro azul-acinzentado */
+    color: #cbd5e1; /* Define a cor do texto como um tom claro de cinza-azulado */
+    font-family: Arial, sans-serif; /* Define uma fonte padrão */
+}
+
+/* Container centralizado para o formulário */
+.container {
+    display: flex; /* Usa flexbox para facilitar o alinhamento */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: center; /* Alinha os itens horizontalmente ao centro */
+    height: 100vh; /* Faz o container ocupar toda a altura da tela */
+}
+
+/* Estilização do formulário */
+div {
+    display: flex; /* Usa flexbox para alinhar os elementos internos */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    gap: .5rem; /* Adiciona espaçamento entre os elementos */
+    background-color: #1e293b; /* Cor de fundo azul escuro para o formulário */
+    padding: 2rem; /* Espaçamento interno para melhor visualização */
+    border-radius: .5rem; /* Borda arredondada */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra para efeito de profundidade */
+}
+
+/* Efeito de erro com animação de tremor */
+.erro {
+    animation: shake .5s; /* Aplica a animação de tremor */
+    animation-iteration-count: 3; /* Repete a animação 3 vezes */
+}
+
+/* Estilização dos campos de entrada do tipo email e senha */
+input[type="email"],
+input[type="password"] {
+    padding: .5rem; /* Espaçamento interno */
+    border: 0; /* Remove borda padrão */
+    border-radius: 4px; /* Borda arredondada */
+    background-color: #334155; /* Fundo escuro para melhor contraste */
+    color: #f8fafc; /* Cor do texto */
+}
+
+/* Efeito ao focar nos campos de entrada */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: 2px solid #f59e0b; /* Borda destacada na cor laranja ao focar */
+    background-color: #475569; /* Muda a cor de fundo para dar destaque */
+}
+
+/* Estilização do botão */
+button {
+    padding: .5rem; /* Espaçamento interno */
+    border: 0; /* Remove borda padrão */
+    border-radius: .25rem; /* Borda arredondada */
+    background-color: #f59e0b; /* Cor de fundo laranja */
+    color: #1e293b; /* Cor do texto para contraste */
+    font-weight: bold; /* Deixa o texto mais destacado */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    transition: opacity .5s, transform 0.2s; /* Adiciona transições suaves */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+button:hover {
+    opacity: .8; /* Reduz a opacidade para dar um efeito visual ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão */
+}
+
+/* Criação de um quadrado animado para efeito visual */
+.square {
+    width: 50px; /* Largura do quadrado */
+    height: 50px; /* Altura do quadrado */
+    background-color: rgba(255, 255, 255, 0.1); /* Cor branca semi-transparente */
+    position: absolute; /* Posicionamento absoluto na página */
+    bottom: 0; /* Posicionado na parte inferior */
+    left: 10%; /* Posicionado a 10% da esquerda */
+    list-style: none; /* Remove o estilo de lista padrão */
+    animation: bubbles 7s infinite ease-in-out; /* Aplica a animação "bubbles" */
+}
+
+/* Segunda variação do quadrado animado */
+.square:nth-last-child(2) {
+    left: 30%; /* Posicionamento diferente na página */
+    height: 30px; /* Tamanho menor */
+    width: 30px;
+    animation-duration: 9s; /* Duração diferente da animação */
+    animation-delay: 2s; /* Atraso na animação para efeito diferenciado */
+}
+
+/* Animação dos quadrados subindo na tela */
+@keyframes bubbles {
+    0% {
+        transform: translateY(0) rotate(-180deg); /* Começa na posição original, girado */
+        opacity: 0; /* Invisível no início */
+    }
+    
+    50% {
+        opacity: 1; /* Fica visível no meio da animação */
+    }
+    
+    100% {
+        transform: translateY(-100vh) rotate(180deg); /* Move para cima da tela e gira */
+        opacity: 0; /* Desaparece no final */
+    }
+}
+
+/* Animação de tremor para indicar erro */
+@keyframes shake {
+    from {
+        transform: translateX(0); /* Posição inicial */
+    }
+
+    25% {
+        transform: translateX(-10px); /* Move para a esquerda */
+    }
+
+    50% {
+        transform: translateX(10px); /* Move para a direita */
+    }
+
+    75% {
+        transform: translateX(-10px); /* Move novamente para a esquerda */
+    }
+
+    100% {
+        transform: translateX(10px); /* Move para a direita */
+    }
+
+    to {
+        transform: translateX(0); /* Retorna à posição original */
+    }
+}

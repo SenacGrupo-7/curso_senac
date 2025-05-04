@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ola Mundo Estilizado</title>
+</head>
+<body>
+    <!-- Criação do elemento canvas onde o texto será desenhado -->
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script type="text/javascript">
+        // Obtém a referência do elemento canvas pelo ID
+        var c = document.getElementById("canvas");
+
+        // Obtém o contexto 2D do canvas para desenhar
+        var ctx = c.getContext("2d");
+
+        // Define a fonte do texto (tamanho 30px, fonte Arial)
+        ctx.font = "30px Arial";
+
+        // Renderiza o texto com contorno (borda) na posição (10, 50)
+        ctx.strokeText("Olá Mundo!", 10, 50);
+    </script>
+</body>
+</html>

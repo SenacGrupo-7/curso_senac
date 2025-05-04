@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Image and Drawing</title>
+</head>
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script type="text/javascript">
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        var image = new Image(120, 120);
+
+        // Define o caminho da imagem
+        image.src = "https://www.sp.senac.br/o/senac-theme/images/logo_senac_default.png";
+
+        image.onload = function() {
+            // Ajusta o tamanho do canvas para a imagem
+            c.width = this.naturalWidth;
+            c.height = this.naturalHeight;
+
+            // Desenha a imagem no canvas
+            ctx.drawImage(this, 0, 0, this.width, this.height);
+
+            // Desenha uma linha sobre a imagem
+            ctx.beginPath();
+            ctx.moveTo(30, 96);
+            ctx.lineTo(70, 66);
+            ctx.lineTo(103, 75);
+            ctx.lineTo(170, 15);
+            ctx.stroke();
+        };
+    </script>
+</body>
+</html>

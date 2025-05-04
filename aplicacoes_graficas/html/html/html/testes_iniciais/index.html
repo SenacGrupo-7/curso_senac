@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Define que este é um documento HTML5 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Garante que o site seja responsivo, ajustando a escala para dispositivos móveis -->
+
+    <title>Document</title>
+    <!-- Define o título da página, que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Importa um arquivo CSS externo para estilizar a página -->
+
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+
+    <!-- Lista não ordenada para exibição de elementos visuais -->
+    <ul>
+        <li class="square"></li> <!-- Item da lista com a classe "square" -->
+        <li class="square"></li>
+        <li class="square"></li>
+    </ul>
+
+    <!-- Contêiner principal do formulário -->
+    <div class="container">
+        <div id="form"  action="">
+            <!-- Grupo de entrada para o e-mail -->
+            <div class="form-group">
+                <label for="email">Email</label> 
+                <!-- Rótulo associado ao campo de e-mail -->
+                <input type="email" name="email" id="email">
+                <!-- Campo de entrada do tipo "email" -->
+            </div>
+
+            <!-- Grupo de entrada para a senha -->
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <!-- Rótulo associado ao campo de senha -->
+                <input type="password" name="password" id="password">
+                <!-- Campo de entrada do tipo "password", que oculta os caracteres digitados -->
+            </div>
+
+            <!-- Botão para enviar o formulário -->
+            <button id="login">Login</button>
+        </div>
+    </div>
+
+</body>
+</html>

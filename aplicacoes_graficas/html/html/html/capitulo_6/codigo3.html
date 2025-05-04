@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca D3</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <svg width="200" height="500"></svg>
+    <script type="text/javascript">
+        var idades = [9, 22, 31, 45, 53];
+        var alturaBarra = 20;
+
+        var grafico = d3.select('svg')
+            .selectAll('rect')
+            .data(idades)
+            .enter()
+            .append('rect')
+            .attr('width', function(idade) { return idade; })
+            .attr('height', alturaBarra - 1)
+            .attr('fill', 'blue')
+            .attr('transform', function(d, i) {
+                return "translate(0," + i * alturaBarra + ")";
+            });
+    </script>
+</body>
+</html>

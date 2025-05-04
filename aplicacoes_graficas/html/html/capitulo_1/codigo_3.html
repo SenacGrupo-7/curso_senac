@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo SENAC com CANVAS</title>
+    <script type="application/javascript">
+        function desenhar_canvas() {
+            var canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+
+                // Desenhando a elipse laranja
+                ctx.beginPath();
+                ctx.fillStyle = "orange";
+                ctx.ellipse(75, 75, 55, 75, Math.PI / 4, 0, 2 * Math.PI);
+                ctx.fill();
+
+                // Adicionando o texto "senac"
+                ctx.font = "35px Impact";
+                ctx.fillStyle = "white";
+                ctx.fillText("senac", 20, 75); 
+
+                // Adicionando o texto "são paulo"
+                ctx.font = "15px Arial";
+                ctx.fillText("são paulo", 65, 95); 
+
+                ctx.stroke();
+            }
+        }
+    </script>
+</head>
+<body onload="desenhar_canvas();">
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <br><br>
+    <p><strong>📌 Explicação do Código</strong></p>
+    <pre><code>
+HTML básico:
+    - Define a estrutura da página com &lt;html&gt;, &lt;head&gt;, e &lt;body&gt;.
+    - Inclui um canvas (&lt;canvas id="canvas"&gt;) onde o desenho será feito.
+
+Script JavaScript (desenhar_canvas):
+    - Obtém o elemento &lt;canvas&gt; pelo ID (document.getElementById("canvas")).
+    - Verifica se o navegador suporta getContext("2d").
+    - Desenha uma elipse laranja usando ctx.ellipse(x, y, raioX, raioY, rotação, início, fim).
+    - Adiciona o texto "senac" e "são paulo" com ctx.fillText().
+    - Finaliza com ctx.stroke() para exibir os traços.
+
+onload="desenhar_canvas();" no &lt;body&gt;:
+    - Garante que o script só seja executado após a página carregar.
+
+🚀 O que esse código faz?
+    - Cria um logotipo estilizado do SENAC usando a API Canvas.
+    - Desenha uma elipse inclinada e coloca os textos "senac" e "são paulo" sobre ela.
+    </code></pre>
+</body>
+</html>

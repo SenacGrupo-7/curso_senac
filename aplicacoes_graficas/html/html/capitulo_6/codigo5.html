@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas</title>
+    <!-- Importa a biblioteca D3.js para manipulação de dados e criação do gráfico -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    
+    <style>
+        /* Estilização das barras do gráfico */
+        .chart div {
+            font: 12px sans-serif;
+            background-color: #CC33BB; /* Cor inicial das barras */
+            padding: 4px;
+            margin: 2px;
+            color: #FFF8DC; /* Cor do texto dentro das barras */
+        }
+
+        /* Estilo quando o mouse passa sobre a barra */
+        .chart div:hover {
+            color: yellow;
+            background-color: #33CC11;
+        }
+
+        /* Estilização da área do gráfico */
+        #dashboard {
+            width: 450px;
+            border: 1px solid black;
+        }
+
+        /* Centraliza o título */
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contêiner para o gráfico -->
+    <div id="dashboard">
+        <p>Gráfico de Vendas</p>
+        <div class="chart"></div>
+    </div>
+
+    <script type="text/javascript">
+        // Dados do gráfico (valores de vendas)
+        var data = [56, 87, 135, 269, 385, 453, 586, 657];
+
+        // Escala linear para ajustar os valores ao tamanho do gráfico
+        var scale = d3.scale.linear()
+            .domain([0, 657])  // Define o intervalo de entrada (dados)
+            .range([0, 400]); // Define o intervalo de saída (largura das barras)
+
+        // Seleciona a div com classe "chart" e adiciona barras representando os dados
+        d3.select(".chart")
+            .selectAll("div")  // Seleciona todos os divs (inexistentes no início)
+            .data(data)  // Associa os dados ao gráfico
+            .enter()  // Para cada valor, cria um novo elemento
+            .append("div")  // Adiciona uma nova div para cada dado
+            .style("width", (d) => scale(d) + "px")  // Define a largura proporcional ao valor
+            .text((d) => "R$ " + d); // Exibe o valor dentro da barra
+    </script>
+</body>
+</html>

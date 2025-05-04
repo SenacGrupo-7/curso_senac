@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Color Timer</title>
+</head>
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script type="text/javascript">
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext('2d');
+        var colors = ["orange", "blue"]; // Cores alternadas
+        var index = 0;
+
+        function drawRectangle() {
+            ctx.clearRect(0, 0, c.width, c.height); // Limpa o canvas
+            ctx.fillStyle = colors[index]; // Define a cor
+            ctx.fillRect(30, 30, 50, 50); // Desenha o quadrado
+            
+            index = (index + 1) % colors.length; // Alterna entre as cores
+        }
+
+        // Chama a função a cada 1 segundo (1000ms)
+        setInterval(drawRectangle, 1000);
+    </script>
+</body>
+</html>

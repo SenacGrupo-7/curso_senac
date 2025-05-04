@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Face</title>
+</head>
+<body>
+    <!-- Canvas onde será desenhado o rosto -->
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script type="text/javascript">
+        // Obtém o elemento <canvas>
+        var c = document.getElementById("canvas");
+
+        // Verifica se o navegador suporta o método getContext
+        if (c.getContext) {
+            // Obtém o contexto 2D do canvas
+            var ctx = c.getContext("2d");
+
+            // Começa um novo caminho para o desenho
+            ctx.beginPath();
+
+            // Desenha a cabeça (um círculo)
+            ctx.arc(75, 75, 50, 0, Math.PI * 2, true); 
+
+            // Desenha a boca (um arco)
+            ctx.moveTo(110, 75); 
+            ctx.arc(75, 75, 35, 0, Math.PI, false); 
+
+            // Desenha o olho esquerdo
+            ctx.moveTo(65, 65);
+            ctx.arc(60, 65, 5, 0, Math.PI * 2, true);
+
+            // Desenha o olho direito
+            ctx.moveTo(95, 65);
+            ctx.arc(90, 65, 5, 0, Math.PI * 2, true);
+
+            // Finaliza o desenho contornando as formas
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>
+

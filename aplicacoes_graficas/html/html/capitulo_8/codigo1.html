@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL</title>
+</head>
+<body>
+    <!-- Elemento <canvas> onde o WebGL irá desenhar -->
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script type="text/javascript">
+        // Chama a função principal ao carregar o script
+        main();
+
+        function main() {
+            // Obtém o elemento <canvas> do HTML
+            var canvas = document.querySelector("#canvas");
+
+            // Obtém o contexto WebGL para renderização 3D
+            var gl = canvas.getContext("webgl");
+
+            // Verifica se WebGL foi inicializado corretamente
+            if (!gl) {
+                alert("Incapaz de inicializar o WebGL, seu navegador ou máquina não suporta.");
+                return; // Sai da função se WebGL não for suportado
+            }
+
+            // Define a cor de fundo do canvas (RGBA: Verde com 50% de opacidade)
+            gl.clearColor(0.0, 1.0, 0.0, 0.5);
+
+            // Aplica a cor de fundo ao canvas limpando o buffer de cores
+            gl.clear(gl.COLOR_BUFFER_BIT);
+        }
+    </script>
+</body>
+</html>

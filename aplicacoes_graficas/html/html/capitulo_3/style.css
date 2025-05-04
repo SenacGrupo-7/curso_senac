@@ -1,0 +1,47 @@
+
+/* formatação para toda a pagina */
+/* função hover para dar destaque ao passar o mouse com tag <a> */
+a:hover{
+    background-color: green;
+}
+
+/* formatar todas as divs */
+
+div{
+    display: inline-block;
+    margin-right: 50px;
+}
+
+/* formatação dos ids, # */
+
+#triangulo-cima{
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid #52A6;
+}
+
+#triangulo-direita{
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 25px solid #52A6;
+}
+
+#triangulo-baixo{
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #52A6;
+}
+
+#triangulo-esquerda{
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 25px solid #52A6;
+}

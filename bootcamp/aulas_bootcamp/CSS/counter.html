@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            counter-reset: section;
+        }
+
+        h2::before {
+            counter-increment: section;
+            content: "section " counter(section) ": ";
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Using CSS Counters</h1>
+    <h2> HTML Tutorial</h2>
+    <h2>JavaScript Tutorial</h2>
+    <h2>Python Tutorial</h2>
+
+    <article>
+        <h1> Propriedades do CSS </h1>
+
+        <p>
+            Propriedade em CSS é a caracteristicas de deixar a pagina apresentavel, com cor de fundo, tamanho da fonte.
+            sintáxe: nome_propriedade: valor_propriedade;
+            ex: background: red;
+            color: white;
+
+
+        </p>
+
+    </article>
+
+</body>
+
+</html>

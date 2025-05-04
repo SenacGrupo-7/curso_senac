@@ -1,0 +1,47 @@
+div {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+/* Estilo geral para os divs (triângulos) */
+div {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 50px;
+  /* Espaço entre os triângulos */
+  transition: background-color 0.3s ease;
+  /* Adiciona uma transição suave para a cor de fundo */
+}
+
+/* Triângulo Cima (aponta para cima) */
+#triangulo-cima {
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid #52A6E4;
+  /* Cor azul */
+}
+
+/* Triângulo Direita (aponta para a direita) */
+#triangulo-direita {
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #52A6E4;
+  /* Cor azul */
+}
+
+/* Triângulo Baixo (aponta para baixo) */
+#triangulo-baixo {
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #52A6E4;
+  /* Cor azul */
+}
+
+/* Triângulo Esquerda (aponta para a esquerda) */
+#triangulo-esquerda {
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-right: 25px solid #52A6E4;
+  /* Cor azul */
+}

@@ -1,0 +1,138 @@
+### Explicação do Código
+
+O código apresentado implementa uma **lousa digital interativa**, onde os usuários podem desenhar livremente na tela e escolher cores e espessuras diferentes para os traços.
+
+---
+
+## **1. HTML (`index.html`)**
+A estrutura HTML define a interface da lousa digital.
+
+### **Cabeçalho (`<head>`)**
+- Define a codificação (`UTF-8`).
+- Configura o **responsivo** para dispositivos móveis (`viewport`).
+- Define o título da página: `"Lousa Digital"`.
+- Importa o **arquivo CSS** (`lousaDigital.css`) para estilização.
+- Importa o **arquivo JavaScript** (`scriptLousa.js`), com `defer`, garantindo que o script será carregado após o HTML.
+
+### **Corpo (`<body>`)**
+- **Título:** `<h1>Lousa Digital` exibe o nome da aplicação.
+- **Barra de ferramentas (`#toolbar`)**:
+  - Contém botões de funcionalidade:
+    - Borracha (`#erase`)
+    - Cores (`#red`, `#yellow`, `#blue`, `#white`)
+    - Espessura do traço (`#line1`, `#line5`, `#line10`)
+  - Ícones SVG são utilizados para os botões.
+- **Área de desenho (`<canvas id="canvas">`)**:
+  - O `canvas` é onde os desenhos são feitos.
+
+---
+
+## **2. CSS (`lousaDigital.css`)**
+Define o **estilo visual** da página.
+
+### **Configuração Global (`*`)**
+- Remove margens e preenchimentos (`margin: 0; padding: 0`).
+- Habilita o `box-sizing: border-box;` para evitar problemas de dimensionamento.
+
+### **Estilização do corpo (`body`)**
+- Define **cor de fundo** `#242424` (cinza escuro).
+- Define **altura e largura** `100vh` (tela cheia).
+
+### **Estilização da `toolbar`**
+- Cor de fundo escura (`#262626`).
+- `display: flex;` alinha os botões horizontalmente.
+- `cursor: pointer;` nos botões para indicar interatividade.
+- `hover` muda a cor ao passar o mouse.
+
+### **Cores e Espessura**
+- Os botões de cor (`#red`, `#yellow`, `#blue`, `#white`) são estilizados para refletir suas respectivas cores.
+- `#line5` e `#line10` aumentam a **espessura do traço** (`stroke-width`).
+
+---
+
+## **3. JavaScript (`scriptLousa.js`)**
+Implementa a lógica para desenhar no `canvas`.
+
+### **1. Configuração do `canvas`**
+```js
+const canvas = document.querySelector("#canvas")
+const ctx = canvas.getContext("2d")
+```
+- Obtém a referência do `canvas` e o **contexto 2D** para desenhar.
+
+```js
+canvas.height = window.innerHeight
+canvas.width = window.innerWidth
+```
+- Define a altura/largura do `canvas` como a **tela inteira**.
+
+```js
+ctx.strokeStyle = "white"
+```
+- Define a cor inicial do traço como **branca**.
+
+---
+
+### **2. Captura de eventos do mouse**
+```js
+let painting = false;
+
+canvas.addEventListener('mousedown', () => painting = true)
+canvas.addEventListener('mouseup', () => {
+    painting = false
+    ctx.beginPath()
+})
+```
+- Quando o usuário **pressiona o mouse (`mousedown`)**, inicia o desenho.
+- Quando **solta (`mouseup`)**, para de desenhar e reinicia o caminho (`ctx.beginPath()`).
+
+```js
+canvas.addEventListener('mousemove', (e) => {
+    if (!painting) return
+    ctx.lineTo(e.clientX, e.clientY)
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.moveTo(e.clientX, e.clientY)
+    ctx.closePath()
+})
+```
+- Quando o mouse **se move (`mousemove`)**, desenha a linha contínua.
+- `ctx.lineTo(x, y)`: desenha até a posição do cursor.
+- `ctx.stroke()`: exibe o traço.
+- `ctx.beginPath() / moveTo(x, y)`: reinicia o caminho para evitar linhas desnecessárias.
+
+---
+
+### **3. Mudança de Cor**
+```js
+document.querySelector("#red").addEventListener('click', () => ctx.strokeStyle = "red")
+document.querySelector("#yellow").addEventListener('click', () => ctx.strokeStyle = "yellow")
+document.querySelector("#blue").addEventListener('click', () => ctx.strokeStyle = "blue")
+document.querySelector("#white").addEventListener('click', () => ctx.strokeStyle = "white")
+```
+- Cada botão altera a **cor do traço** quando clicado.
+
+---
+
+### **4. Mudança da Espessura do Traço**
+```js
+document.querySelector("#line1").addEventListener('click', () => ctx.lineWidth = 1)
+document.querySelector("#line5").addEventListener('click', () => ctx.lineWidth = 5)
+document.querySelector("#line10").addEventListener('click', () => ctx.lineWidth = 10)
+```
+- Altera a **espessura do traço** do desenho.
+
+---
+
+### **5. Borracha (Limpar a Tela)**
+```js
+document.querySelector("#erase").addEventListener('click', () => 
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+)
+```
+- Apaga tudo no `canvas`, limpando a lousa digital.
+
+---
+
+## **Conclusão**
+Este código cria uma **lousa digital interativa** com suporte a desenho livre, seleção de cores, ajuste de espessura e borracha. 🚀

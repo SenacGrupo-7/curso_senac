@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico Pizza</title>
+    <!-- Importa a biblioteca D3.js para manipulação do DOM e criação do gráfico -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <!-- Div onde o gráfico será inserido -->
+    <div id="pie_chart"></div>
+
+    <script type="text/javascript">
+        // Definição das dimensões do gráfico
+        var width = 450;   // Largura total do SVG
+        var height = 450;  // Altura total do SVG
+        var margin = 40;   // Margem para evitar corte do gráfico
+
+        // Cálculo do raio do gráfico (metade do menor valor entre largura e altura menos a margem)
+        var radius = Math.min(width, height) / 2 - margin;
+
+        // Seleciona a div onde o gráfico será inserido e adiciona um SVG
+        var svg = d3.select("#pie_chart") // Seleciona a div com ID "pie_chart"
+            .append("svg") // Adiciona um elemento SVG dentro da div
+            .attr("width", width) // Define a largura do SVG
+            .attr("height", height) // Define a altura do SVG
+            .append("g") // Adiciona um grupo <g> para centralizar o gráfico
+            .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+
+        // Definição dos dados do gráfico (valores associados a categorias)
+        var data = { a: 9, b: 20, c: 30, d: 8, e: 12 };
+
+        // Define uma escala de cores para os segmentos da pizza
+        var color = d3.scaleOrdinal()
+            .domain(Object.keys(data)) // Define os rótulos dos segmentos (chaves do objeto `data`)
+            .range(["blue", "magenta", "yellow", "red", "green"]); // Cores para cada segmento
+
+        // Criação da função de layout Pie (converte dados para um formato adequado)
+        var pie = d3.pie()
+            .value(function(d) { return d.value; }); // Define que os valores do gráfico virão do objeto `value`
+
+        // Converte os dados do formato objeto para um array de entradas (`entries`)
+        var data_ready = pie(d3.entries(data)); // Converte o objeto em um array que pode ser processado pelo D3
+
+        // Criação do gráfico de pizza
+        svg.selectAll('path') // Seleciona todos os elementos <path> (não existentes inicialmente)
+            .data(data_ready) // Associa os dados processados ao gráfico
+            .enter() // Cria novos elementos para cada entrada do array `data_ready`
+            .append('path') // Adiciona um novo elemento <path> para cada fatia da pizza
+            .attr('d', d3.arc()
+                .innerRadius(0) // Define raio interno como 0 (pizza sólida, sem buraco no centro)
+                .outerRadius(radius) // Define o raio externo do gráfico
+            )
+            .attr('fill', function(d) {
+                return color(d.data.key); // Define a cor com base na chave dos dados
+            })
+            .attr("stroke", "black") // Adiciona uma borda preta em cada fatia
+            .style("stroke-width", "2px") // Define a largura da borda
+            .style("opacity", "0.7"); // Define a opacidade para 70%
+    </script>
+</body>
+</html>
+

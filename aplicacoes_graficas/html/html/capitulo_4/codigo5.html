@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Atributos</title>
+    <script>
+        function alterarAtributo() {
+            var atributo = document.getElementById("atributo").value;
+            var valor = document.getElementById("valor").value;
+            var elemento = document.getElementById("minhaDiv");
+
+            if (atributo && valor) {
+                // Se o atributo for 'style', altera diretamente o estilo da div
+                if (atributo.toLowerCase() === 'style') {
+                    var estilo = valor.split(":");
+                    if (estilo.length === 2) {
+                        elemento.style[estilo[0].trim()] = estilo[1].trim();
+                    } else {
+                        // Caso o valor seja apenas uma cor, aplica como fundo
+                        elemento.style.backgroundColor = valor.trim();
+                    }
+                } else {
+                    elemento.setAttribute(atributo, valor);
+                }
+                alert("Atributo atualizado!");
+            } else {
+                alert("Preencha ambos os campos!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Alterar Atributos da Div</h2>
+    
+    <label>Atributo:</label>
+    <input type="text" id="atributo" placeholder="Ex: style">
+    
+    <label>Valor:</label>
+    <input type="text" id="valor" placeholder="Ex: background-color: yellow;">
+    
+    <button onclick="alterarAtributo()">Alterar</button>
+    
+    <div id="minhaDiv" style="width: 100px; height: 100px; background-color: lightblue; margin-top: 20px;">
+        Div Exemplo
+    </div>
+</body>
+</html>
+

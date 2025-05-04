@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo SENAC</title>
+    <script type="application/javascript">
+        function desenhar_canvas() {
+            var canvas = document.getElementById("canvas")
+            if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+                ctx.beginPath();
+                ctx.fillStyle = "orange";
+                ctx.ellipse(75, 75, 55, 75, Math.PI / 4, 0, 2 * Math.PI, true);
+                ctx.fill();
+                ctx.font = "35px Impact";
+                ctx.fillStyle = "white";
+                ctx.fillText("senac", 20, 75);
+                ctx.font = "15px Arial";
+                ctx.fillText("São Paulo", 65, 95);
+                ctx.stroke();
+            }
+        }
+    </script>
+</head>
+
+<body onload="desenhar_canvas();">
+    <canvas id="canvas" width="150" height="150">
+    </canvas>
+</body>
+
+</html>

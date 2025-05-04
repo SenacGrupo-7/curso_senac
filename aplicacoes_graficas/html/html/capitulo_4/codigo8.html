@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação do DOM</title>
+    <script>
+        function alterarAtributos() {
+            var botao = document.getElementById("meuBotao");
+            botao.setAttribute("disabled", "true");
+            botao.style.backgroundColor = "gray";
+            botao.innerText = "Desativado!";
+        }
+    </script>
+</head>
+<body>
+    <button id="meuBotao" onclick="alterarAtributos()">Clique para desativar</button>
+</body>
+</html>

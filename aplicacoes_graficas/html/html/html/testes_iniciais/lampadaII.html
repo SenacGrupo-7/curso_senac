@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada Interativa</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .lamp-container {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .lamp_bulb {
+            width: 80px;
+            height: 100px;
+            background-color: gray;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin: auto;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .lamp_bulb::before {
+            content: "";  
+            position: absolute;             
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border: 2px solid white;
+            border-bottom: none;
+            height: 20px;
+            width: 40px;
+            background-color: inherit;
+        }
+
+        .on {
+            background-color: yellow !important;
+            box-shadow: 0px 0px 20px yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Clique na lâmpada para acender ou apagar</h1>
+
+    <div class="lamp-container">
+        <div id="lamp" class="lamp_bulb"></div>
+    </div>
+
+    <script>
+        const lamp = document.getElementById("lamp");
+
+        lamp.addEventListener("click", () => {
+            lamp.classList.toggle("on");
+        });
+    </script>
+
+</body>
+</html>

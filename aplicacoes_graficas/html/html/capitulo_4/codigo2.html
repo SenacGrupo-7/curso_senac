@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Eventos Teclado</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        function keydownFunction() {
+            document.getElementById("color").style.backgroundColor = "red";
+        }
+
+        function keyupFunction() {
+            document.getElementById("color").style.backgroundColor = "yellow";
+        }
+    </script>
+</head>
+<body>
+    <h1>Exemplos de Eventos Teclado</h1>
+    <p>
+        No campo de texto pressione uma tecla para ativar um cartão vermelho/amarelo na div.
+    </p>
+    <input type="text" id="demo" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+    
+    <div id="color"></div>
+
+    <hr/>
+</body>
+</html>
